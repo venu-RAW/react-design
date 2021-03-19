@@ -1,0 +1,254 @@
+.details {
+	width: 100%;
+	height: 54rem;
+	display: flex;
+	position: relative;
+	margin-bottom: 7rem;
+
+	.container {
+		width: 95%;
+		height: 100%;
+		display: flex;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		.leftDiv {
+			width: 55%;
+			background: white;
+			position: relative;
+
+			.sofa_1 {
+				position: absolute;
+				top: 7%;
+				right: 10%;
+				// transform: translate(-50%, -50%) translateX(-4%);
+				height: 46rem;
+				width: 100%;
+
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		.rightDiv {
+			width: 45%;
+			background: white;
+			display: flex;
+			flex-direction: column;
+			padding: 7rem 8rem 0 2rem;
+
+			.rightTop {
+				h2 {
+					font-size: 2.2rem;
+					padding-right: 7rem;
+				}
+
+				.ratings {
+					margin-top: 0.8rem;
+					cursor: pointer;
+
+					.checked {
+						font-size: 1.3rem;
+						color: #fcdc4d;
+					}
+					.unchecked {
+						font-size: 1.3rem;
+						color: #bbb;
+					}
+
+					.reviewCount {
+						padding-left: 0.5rem;
+						font-size: 1.3rem;
+						font-weight: 600;
+						color: #aaa;
+					}
+				}
+
+				.price {
+					margin-top: 2.4rem;
+					margin-bottom: 2rem;
+
+					.oldPrice {
+						font-size: 1.8rem;
+						color: #aaa;
+						font-weight: 600;
+						text-decoration: line-through;
+						padding-right: 0.6rem;
+					}
+
+					.newPrice {
+						font-size: 1.8rem;
+						color: #2e2d2d;
+						font-weight: 600;
+					}
+				}
+			}
+
+			.rightMiddle {
+				border-top: 0.1rem solid #ddd;
+				border-bottom: 0.1rem solid #ddd;
+
+				ul {
+					padding: 2rem 0 2rem 1.4rem;
+
+					li {
+						font-size: 1rem;
+						letter-spacing: 0.01rem;
+						font-weight: 700;
+
+						&:last-child {
+							padding-top: 0.8rem;
+						}
+
+						span {
+							font-weight: 100;
+						}
+					}
+				}
+			}
+
+			.rightBottom {
+				.offers {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					.offersLeft {
+						width: 40%;
+						display: flex;
+						align-items: center;
+						margin-top: 2rem;
+
+						span {
+							width: 6rem;
+							height: 4rem;
+							text-align: center;
+							line-height: 4rem;
+							background-color: #ddd;
+							border-radius: 100px;
+
+							i {
+								font-size: 1.5rem;
+							}
+						}
+
+						p {
+							font-size: 1rem;
+							font-weight: 700;
+							color: #2e2d2d;
+							margin-left: 1rem;
+						}
+					}
+
+					.offersRight {
+						width: 60%;
+						display: flex;
+						align-items: center;
+						margin-top: 2rem;
+
+						span {
+							width: 6rem;
+							height: 4rem;
+							text-align: center;
+							line-height: 4rem;
+							background-color: #ddd;
+							border-radius: 100px;
+
+							i {
+								font-size: 1.5rem;
+							}
+						}
+
+						p {
+							font-size: 1rem;
+							font-weight: 700;
+							color: #2e2d2d;
+							margin-left: 1rem;
+							padding-right: 4rem;
+						}
+					}
+				}
+
+				.colors {
+					display: flex;
+					flex-direction: column;
+
+					p {
+						font-size: 1rem;
+						letter-spacing: 0.01rem;
+						font-weight: 700;
+						text-transform: uppercase;
+						margin-top: 2rem;
+					}
+
+					.colorScheme {
+						display: flex;
+
+						span {
+							margin-top: 0.8rem;
+							margin-right: 1rem;
+							width: 2.2rem;
+							height: 2.2rem;
+							border-radius: 10rem;
+							border: 0.1rem solid #ddd;
+
+							&:nth-child(1) {
+								background-color: #7969055d;
+							}
+							&:nth-child(2) {
+								background-color: black;
+								text-align: center;
+								line-height: 1.8rem;
+
+								i {
+									color: white;
+									font-size: 0.8rem;
+								}
+							}
+							&:nth-child(3) {
+								background-color: white;
+							}
+						}
+					}
+				}
+
+				.addToCart {
+					height: 4rem;
+					line-height: 4rem;
+					margin-top: 2rem;
+					text-align: center;
+					display: flex;
+
+					.add {
+						background-color: #ddd;
+
+						span {
+							font-size: 1rem;
+							padding: 1.2rem;
+							cursor: pointer;
+						}
+
+						.count {
+							font-size: 1.5rem;
+							font-weight: 600;
+						}
+					}
+
+					.cartButton {
+						background-color: #fcdc4d;
+
+						span {
+							font-size: 1.1rem;
+							font-weight: 700;
+							color: white;
+							padding: 0 4rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,142 @@
+.reviews {
+	width: 100%;
+	min-height: 45rem;
+	margin-bottom: 12rem;
+	background-color: #f0f0f0;
+
+	h3 {
+		font-size: 2rem;
+	}
+
+	.ratings {
+		margin-top: 3rem;
+		cursor: pointer;
+
+		.checked {
+			font-size: 1.3rem;
+			color: #fcdc4d;
+		}
+		.unchecked {
+			font-size: 1.3rem;
+			color: #bbb;
+		}
+
+		.averageReview {
+			padding-left: 1rem;
+			font-size: 1.3rem;
+			color: #6c757d;
+		}
+
+		.reviewCount {
+			padding-left: 1rem;
+			font-size: 1.3rem;
+			color: #6c757d;
+		}
+	}
+
+	.review {
+		width: 100%;
+		height: 100%;
+		// border: 1px solid brown;
+
+		.review1 {
+			display: flex;
+			align-items: flex-start;
+			margin-top: 4rem;
+			font-size: 1.4rem;
+
+			.left {
+				display: flex;
+				align-items: center;
+				width: 30%;
+
+				.personImg {
+					width: 4.5rem;
+					height: 4.5rem;
+					border-radius: 50%;
+					overflow: hidden;
+					margin-right: 1.5rem;
+
+					img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				.personName {
+					display: flex;
+					flex-direction: column;
+
+					span {
+						&:first-child {
+							font-weight: 700;
+						}
+
+						&:last-child {
+							font-size: 1.3rem;
+							color: #5a5959;
+							padding-top: 0.5rem;
+						}
+					}
+				}
+			}
+
+			.right {
+				width: 70%;
+
+				p {
+					&:first-child {
+						font-weight: 700;
+					}
+
+					&:last-child {
+						font-weight: 700;
+						margin-top: 2rem;
+					}
+				}
+
+				.rightRatings {
+					margin-top: 1rem;
+					cursor: pointer;
+
+					.checked {
+						font-size: 1.3rem;
+						color: #fcdc4d;
+					}
+					.unchecked {
+						font-size: 1.3rem;
+						color: #bbb;
+					}
+
+					.reviewCount {
+						padding-left: 0.5rem;
+						font-size: 1.3rem;
+						font-weight: 600;
+						color: #2e2d2d;
+					}
+				}
+
+				.comment {
+					font-size: 1.3rem;
+					line-height: 2rem;
+					color: #5a5959;
+					margin-top: 2rem;
+					padding-right: 4rem;
+					text-align: justify;
+				}
+			}
+		}
+	}
+
+	.loadmore {
+		text-align: center;
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin-top: 6rem;
+		cursor: pointer;
+
+		span {
+			border-bottom: 0.1rem solid #fcdc4d;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+.main {
+	min-height: calc(100vh - 12vh);
+
+	.details {
+		width: 100%;
+		min-height: calc(88vh - 15vh);
+		display: flex;
+
+		.leftSidebar {
+			width: 28%;
+			position: relative;
+			// border: 1px solid black;
+		}
+
+		.rightSidebar {
+			max-width: 72%;
+		}
+	}
+}

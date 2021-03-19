@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	min-height: 100vh;
+	background-color: #f0f0f0;
+	font-size: 1.6rem;
+	font-family: "Montserrat", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+}
+
+#root {
+	min-height: 100vh;
+}
