@@ -20,7 +20,7 @@ const Description = () => {
 	};
 
 	return (
-		<>
+		<section id="description">
 			<div className={styles.description1}>
 				<div className={styles.descriptionDiv}>
 					<p>
@@ -89,7 +89,7 @@ const Description = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</section>
 	);
 };
 

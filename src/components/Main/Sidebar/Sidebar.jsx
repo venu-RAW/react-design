@@ -8,22 +8,22 @@ const Sidebar = () => {
 			<div className={styles.sidebarLinks}>
 				<ul className={styles.sideMenu}>
 					<li className={`${styles.sideLinks} ${styles.active}`}>
-						<a href="/#" className={styles.sideLinkText}>
+						<a href="/#details" className={styles.sideLinkText}>
 							Details
 						</a>
 					</li>
 					<li className={styles.sideLinks}>
-						<a href="/description" className={styles.sideLinkText}>
+						<a href="/#description" className={styles.sideLinkText}>
 							Description
 						</a>
 					</li>
 					<li className={styles.sideLinks}>
-						<a href="/#" className={styles.sideLinkText}>
+						<a href="/#reviews" className={styles.sideLinkText}>
 							Reviews
 						</a>
 					</li>
 					<li className={styles.sideLinks}>
-						<a href="/#" className={styles.sideLinkText}>
+						<a href="/#related" className={styles.sideLinkText}>
 							Related
 						</a>
 					</li>

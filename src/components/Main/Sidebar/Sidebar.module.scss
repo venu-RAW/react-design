@@ -1,17 +1,12 @@
 .sidebar {
 	width: 100%;
-	height: 96.5%;
-	// height: 100%;
-	padding-top: 16rem;
-	// border: 1px solid blue;
+	position: sticky;
+	top: 45%;
 
 	.sidebarLinks {
 		width: 100%;
 		height: 20rem;
-		// border: 1px solid green;
-		margin-bottom: 3rem;
-		position: sticky;
-		top: 30rem;
+		margin-bottom: 6rem;
 
 		.sideMenu {
 			height: 100%;
@@ -56,9 +51,6 @@
 
 	.socialIcons {
 		margin-top: 3rem;
-		position: sticky;
-		top: 53rem;
-		// border: 1px solid blueviolet;
 
 		.iconMenu {
 			display: flex;
@@ -88,13 +80,11 @@
 	}
 
 	.option {
-		position: sticky;
-		top: 59rem;
-		transform: translate(-50%, -50%) rotate(-90deg) translateX(35%)
+		transform: translate(-50%, -50%) rotate(-90deg) translateX(48%)
 			translateY(70%);
 
 		h3 {
-			font-size: 10rem;
+			font-size: 9.5rem;
 			color: white;
 		}
 	}

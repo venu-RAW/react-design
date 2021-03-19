@@ -6,7 +6,7 @@ import talib from "../../../../images/talib.jpeg";
 const Reviews = () => {
 	return (
 		<>
-			<div className={styles.reviews}>
+			<section className={styles.reviews} id="reviews">
 				<h3>23 reviews for nudie extendable sofa</h3>
 				<div className={styles.ratings}>
 					<span>
@@ -118,7 +118,7 @@ const Reviews = () => {
 				<div className={styles.loadmore}>
 					<span>Load more(21)</span>
 				</div>
-			</div>
+			</section>
 		</>
 	);
 };

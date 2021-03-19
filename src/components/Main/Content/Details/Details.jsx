@@ -5,7 +5,7 @@ import sofa1 from "../../../../images/sofa1.jpeg";
 const Details = () => {
 	return (
 		<>
-			<section className={styles.details}>
+			<section className={styles.details} id="details">
 				<div className={styles.container}>
 					<div className={styles.leftDiv}>
 						<div className={styles.sofa_1}>

@@ -12,7 +12,7 @@ import eighth from "../../../../images/upsidedownconeflowerpottabel.jpg";
 
 const Related = () => {
 	return (
-		<div className={styles.relatedContainer}>
+		<section className={styles.relatedContainer} id="related">
 			<p className={styles.heading}>Related Products</p>
 			<div className={styles.related}>
 				<div className={styles.product}>
@@ -114,7 +114,7 @@ const Related = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
