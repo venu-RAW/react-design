@@ -1,53 +1,85 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styles from "./Sidebar.module.scss";
 
-const Sidebar = ({ scrollpos }) => {
-	console.log("Scroll Position:", scrollpos);
-	// 750, 2895, 3615
+// 750, 2895, 3615
+const Sidebar = (props) => {
+	const { refobj } = props;
+
+	const [name, setName] = useState("");
 	const links = useRef(null);
 
-	if (scrollpos >= 1 && scrollpos <= 749) {
-		links.current.children[0].classList.add(`${styles.active}`);
-		links.current.children[1].classList.remove(`${styles.active}`);
-	}
-	if (scrollpos >= 750) {
-		links.current.children[0].classList.remove(`${styles.active}`);
-		links.current.children[1].classList.add(`${styles.active}`);
-		links.current.children[2].classList.remove(`${styles.active}`);
-	}
-	if (scrollpos >= 2850) {
-		links.current.children[1].classList.remove(`${styles.active}`);
-		links.current.children[2].classList.add(`${styles.active}`);
-		links.current.children[3].classList.remove(`${styles.active}`);
-	}
-	if (scrollpos >= 3550) {
-		links.current.children[2].classList.remove(`${styles.active}`);
-		links.current.children[3].classList.add(`${styles.active}`);
-	}
+	const handleScroll = () => {
+		let scrollpos = window.scrollY;
+		console.log("scrolltop:", refobj.details.current);
+
+		if (scrollpos >= 1 && scrollpos <= 749) {
+			links.current.children[0].classList.add(`${styles.active}`);
+			links.current.children[1].classList.remove(`${styles.active}`);
+			setName("Details");
+		}
+		if (scrollpos >= 750) {
+			links.current.children[0].classList.remove(`${styles.active}`);
+			links.current.children[1].classList.add(`${styles.active}`);
+			links.current.children[2].classList.remove(`${styles.active}`);
+			setName("Description");
+		}
+		if (scrollpos >= 2850) {
+			links.current.children[1].classList.remove(`${styles.active}`);
+			links.current.children[2].classList.add(`${styles.active}`);
+			links.current.children[3].classList.remove(`${styles.active}`);
+			setName("Reviews");
+		}
+		if (scrollpos >= 3550) {
+			links.current.children[2].classList.remove(`${styles.active}`);
+			links.current.children[3].classList.add(`${styles.active}`);
+			setName("Related");
+		}
+	};
+
+	useEffect(() => {
+		setName("Details");
+		window.addEventListener("scroll", handleScroll);
+
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
+	const scrollTo = (el) => el.scrollIntoView({ behavior: "smooth" });
 
 	return (
 		<div className={styles.sidebar}>
 			<div className={styles.sidebarLinks}>
 				<ul className={styles.sideMenu} ref={links}>
 					<li className={`${styles.sideLinks} ${styles.active}`}>
-						<a href="/#details" className={styles.sideLinkText}>
+						<p
+							className={styles.sideLinkText}
+							onClick={() => scrollTo(refobj.details.current)}
+						>
 							Details
-						</a>
+						</p>
 					</li>
 					<li className={styles.sideLinks}>
-						<a href="/#description" className={styles.sideLinkText}>
+						<p
+							className={styles.sideLinkText}
+							onClick={() => scrollTo(refobj.description.current)}
+						>
 							Description
-						</a>
+						</p>
 					</li>
 					<li className={styles.sideLinks}>
-						<a href="/#reviews" className={styles.sideLinkText}>
+						<p
+							className={styles.sideLinkText}
+							onClick={() => scrollTo(refobj.reviews.current)}
+						>
 							Reviews
-						</a>
+						</p>
 					</li>
 					<li className={styles.sideLinks}>
-						<a href="/#related" className={styles.sideLinkText}>
+						<p
+							className={styles.sideLinkText}
+							onClick={() => scrollTo(refobj.related.current)}
+						>
 							Related
-						</a>
+						</p>
 					</li>
 				</ul>
 			</div>
@@ -71,7 +103,7 @@ const Sidebar = ({ scrollpos }) => {
 				</ul>
 			</div>
 			<div className={styles.option}>
-				<h3>Details</h3>
+				<h3>{name}</h3>
 			</div>
 		</div>
 	);

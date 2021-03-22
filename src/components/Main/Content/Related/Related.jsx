@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./Related.module.scss";
 
 import first from "../../../../images/bamboofibergobo.jpg";
@@ -10,9 +10,9 @@ import sixth from "../../../../images/Suprematic-Lighting.jpg";
 import seventh from "../../../../images/TheSmallFairbanksSideboard.jpg";
 import eighth from "../../../../images/upsidedownconeflowerpottabel.jpg";
 
-const Related = () => {
+const Related = (props, ref) => {
 	return (
-		<section className={styles.relatedContainer} id="related">
+		<section className={styles.relatedContainer} id="related" ref={ref}>
 			<p className={styles.heading}>Related Products</p>
 			<div className={styles.related}>
 				<div className={styles.product}>
@@ -118,4 +118,4 @@ const Related = () => {
 	);
 };
 
-export default Related;
+export default forwardRef(Related);

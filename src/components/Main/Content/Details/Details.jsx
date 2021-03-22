@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import styles from "./Details.module.scss";
 import sofa1 from "../../../../images/sofa1.jpeg";
 
-const Details = ({ incrementCart, decrementCart, quantity, setCartCount }) => {
+const Details = (
+	{ incrementCart, decrementCart, quantity, setCartCount },
+	ref
+) => {
 	const [rating, setRating] = useState(null);
 	const [hover, setHover] = useState(null);
 
 	return (
 		<>
-			<section className={styles.details} id="details">
+			<section className={styles.details} id="details" ref={ref}>
 				<div className={styles.container}>
 					<div className={styles.leftDiv}>
 						<div className={styles.sofa_1}>
@@ -113,4 +116,4 @@ const Details = ({ incrementCart, decrementCart, quantity, setCartCount }) => {
 	);
 };
 
-export default Details;
+export default forwardRef(Details);

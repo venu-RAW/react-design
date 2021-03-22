@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef } from "react";
 import styles from "./Main.module.scss";
 
 import BreadCrumb from "./BreadCrumb/BreadCrumb";
@@ -9,36 +9,42 @@ import Reviews from "./Content/Reviews/Reviews";
 import Related from "./Content/Related/Related";
 
 const Main = ({ incrementCart, decrementCart, quantity, setCartCount }) => {
-	// scroll
-	const [scrollpos, setscrollpos] = useState(0);
+	const details = useRef(null);
+	const description = useRef(null);
+	const reviews = useRef(null);
+	const related = useRef(null);
 
-	const handleScroll = () => {
-		setscrollpos(window.scrollY);
+	const refobj = {
+		details,
+		description,
+		reviews,
+		related,
 	};
-
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
 
 	return (
 		<div className={styles.main}>
 			<BreadCrumb />
 			<div className={styles.details}>
 				<div className={styles.leftSidebar}>
-					<Sidebar scrollpos={scrollpos} />
+					<Sidebar
+						// details={details}
+						// description={description}
+						// reviews={reviews}
+						// related={related}
+						refobj={refobj}
+					/>
 				</div>
 				<div className={styles.rightSidebar}>
 					<Details
+						ref={details}
 						incrementCart={incrementCart}
 						decrementCart={decrementCart}
 						quantity={quantity}
 						setCartCount={setCartCount}
 					/>
-					<Description />
-					<Reviews />
-					<Related />
+					<Description ref={description} />
+					<Reviews ref={reviews} />
+					<Related ref={related} />
 				</div>
 			</div>
 		</div>

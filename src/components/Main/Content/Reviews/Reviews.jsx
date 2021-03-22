@@ -1,12 +1,12 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./Reviews.module.scss";
 import venu from "../../../../images/venu.jpg";
 import talib from "../../../../images/talib.jpeg";
 
-const Reviews = () => {
+const Reviews = (props, ref) => {
 	return (
 		<>
-			<section className={styles.reviews} id="reviews">
+			<section className={styles.reviews} id="reviews" ref={ref}>
 				<h3>23 reviews for nudie extendable sofa</h3>
 				<div className={styles.ratings}>
 					<span>
@@ -123,4 +123,4 @@ const Reviews = () => {
 	);
 };
 
-export default Reviews;
+export default forwardRef(Reviews);
