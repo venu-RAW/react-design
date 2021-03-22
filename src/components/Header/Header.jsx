@@ -2,10 +2,10 @@ import React from "react";
 import Navbar from "./Navbar/Navbar";
 import styles from "./Header.module.scss";
 
-const Header = () => {
+const Header = ({ cartCount }) => {
 	return (
 		<div className={styles.header}>
-			<Navbar />
+			<Navbar cartCount={cartCount} />
 		</div>
 	);
 };

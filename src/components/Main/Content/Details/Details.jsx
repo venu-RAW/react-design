@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Details.module.scss";
 import sofa1 from "../../../../images/sofa1.jpeg";
 
-const Details = () => {
+const Details = ({ incrementCart, decrementCart, quantity, setCartCount }) => {
+	const [rating, setRating] = useState(null);
+	const [hover, setHover] = useState(null);
+
 	return (
 		<>
 			<section className={styles.details} id="details">
@@ -16,21 +19,29 @@ const Details = () => {
 						<div className={styles.rightTop}>
 							<h2>Nudie Extendable Sofa for 3 persons.</h2>
 							<div className={styles.ratings}>
-								<span>
-									<i className={`fas fa-star ${styles.checked}`}></i>
-								</span>
-								<span>
-									<i className={`fas fa-star ${styles.checked}`}></i>
-								</span>
-								<span>
-									<i className={`fas fa-star ${styles.unchecked}`}></i>
-								</span>
-								<span>
-									<i className={`fas fa-star ${styles.unchecked}`}></i>
-								</span>
-								<span>
-									<i className={`fas fa-star ${styles.unchecked}`}></i>
-								</span>
+								{[...Array(5)].map((star, i) => {
+									const ratingValue = i + 1;
+
+									return (
+										<label key={ratingValue}>
+											<input
+												type="radio"
+												name="rating"
+												value={ratingValue}
+												onClick={() => setRating(ratingValue)}
+											/>
+											<i
+												className={`fas fa-star ${styles.star} ${
+													ratingValue <= (hover || rating)
+														? styles.checked
+														: styles.unchecked
+												}`}
+												onMouseEnter={() => setHover(ratingValue)}
+												onMouseLeave={() => setHover(null)}
+											></i>
+										</label>
+									);
+								})}
 								<span className={styles.reviewCount}>(23)</span>
 							</div>
 							<div className={styles.price}>
@@ -74,15 +85,22 @@ const Details = () => {
 								</div>
 								<div className={styles.addToCart}>
 									<div className={styles.add}>
-										<span>
+										<span onClick={decrementCart}>
 											<i className="fas fa-minus"></i>
 										</span>
-										<span className={styles.count}>1</span>
-										<span>
+										<span className={styles.count}>{quantity}</span>
+										<span onClick={incrementCart}>
 											<i className="fas fa-plus"></i>
 										</span>
 									</div>
-									<div className={styles.cartButton}>
+									<div
+										className={styles.cartButton}
+										onClick={() =>
+											setCartCount(
+												(prevState) => prevState + quantity
+											)
+										}
+									>
 										<span>ADD TO CART</span>
 									</div>
 								</div>

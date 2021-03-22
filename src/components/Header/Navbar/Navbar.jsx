@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Navbar.module.scss";
 import logo from "../../../images/logo.png";
 
-const Navbar = () => {
+const Navbar = ({ cartCount }) => {
 	return (
 		<nav className={styles.navBar}>
 			<div className={styles.navbarContent}>
@@ -49,9 +49,8 @@ const Navbar = () => {
 						</li>
 						<li className={`${styles.iconList} ${styles.bag}`}>
 							<div className={styles.bagCount}>
-								<span>2</span>
+								<span>{cartCount ? cartCount : 0}</span>
 							</div>
-							{/* <i className="gg-shopping-bag"></i> */}
 							<i className="fas fa-shopping-bag"></i>
 						</li>
 					</ul>
