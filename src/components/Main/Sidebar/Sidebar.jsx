@@ -6,7 +6,9 @@ const Sidebar = (props) => {
 	const links = useRef(null);
 	const sidename = useRef(null);
 
-	const handleScroll = () => {
+	const handleScroll = useRef(() => {});
+
+	handleScroll.current = () => {
 		let scrollpos = window.scrollY;
 
 		for (let i = 0; i <= Object.entries(refobj).length - 1; i++) {
@@ -26,9 +28,9 @@ const Sidebar = (props) => {
 	};
 
 	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll.current);
 
-		return () => window.removeEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll.current);
 	}, []);
 
 	const scrollTo = (el) => {
