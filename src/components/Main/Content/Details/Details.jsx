@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useRef } from "react";
 import styles from "./Details.module.scss";
 import sofa1 from "../../../../images/sofa1.jpeg";
 
@@ -8,6 +8,15 @@ const Details = (
 ) => {
 	const [rating, setRating] = useState(null);
 	const [hover, setHover] = useState(null);
+
+	const color = useRef(null);
+
+	const selectColor = (id) => {
+		for (let c of color.current.children) {
+			c.children[0].classList.remove("fa-check");
+		}
+		color.current.children[Number(id)].children[0].classList.add("fa-check");
+	};
 
 	return (
 		<>
@@ -79,12 +88,25 @@ const Details = (
 							</div>
 							<div className={styles.colors}>
 								<p>Color:</p>
-								<div className={styles.colorScheme}>
-									<span></span>
-									<span>
+								<div className={styles.colorScheme} ref={color}>
+									<span
+										id="0"
+										onClick={(e) => selectColor(e.target.id)}
+									>
+										<i className="fas"></i>
+									</span>
+									<span
+										id="1"
+										onClick={(e) => selectColor(e.target.id)}
+									>
 										<i className="fas fa-check"></i>
 									</span>
-									<span></span>
+									<span
+										id="2"
+										onClick={(e) => selectColor(e.target.id)}
+									>
+										<i className="fas"></i>
+									</span>
 								</div>
 								<div className={styles.addToCart}>
 									<div className={styles.add}>

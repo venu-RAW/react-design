@@ -15,10 +15,10 @@ const Main = ({ incrementCart, decrementCart, quantity, setCartCount }) => {
 	const related = useRef(null);
 
 	const refobj = {
-		details,
-		description,
-		reviews,
-		related,
+		Details: details,
+		Description: description,
+		Reviews: reviews,
+		Related: related,
 	};
 
 	return (
@@ -26,13 +26,7 @@ const Main = ({ incrementCart, decrementCart, quantity, setCartCount }) => {
 			<BreadCrumb />
 			<div className={styles.details}>
 				<div className={styles.leftSidebar}>
-					<Sidebar
-						// details={details}
-						// description={description}
-						// reviews={reviews}
-						// related={related}
-						refobj={refobj}
-					/>
+					<Sidebar refobj={refobj} />
 				</div>
 				<div className={styles.rightSidebar}>
 					<Details

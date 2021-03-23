@@ -20,7 +20,7 @@ const Description = (props, ref) => {
 	};
 
 	return (
-		<section id="description" ref={ref}>
+		<section id="description" ref={ref} className={styles.description}>
 			<div className={styles.description1}>
 				<div className={styles.descriptionDiv}>
 					<p>

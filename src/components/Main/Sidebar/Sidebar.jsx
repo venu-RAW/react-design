@@ -1,49 +1,39 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "./Sidebar.module.scss";
 
-// 750, 2895, 3615
 const Sidebar = (props) => {
 	const { refobj } = props;
-
-	const [name, setName] = useState("");
 	const links = useRef(null);
+	const sidename = useRef(null);
 
 	const handleScroll = () => {
 		let scrollpos = window.scrollY;
-		console.log("scrolltop:", refobj.details.current);
 
-		if (scrollpos >= 1 && scrollpos <= 749) {
-			links.current.children[0].classList.add(`${styles.active}`);
-			links.current.children[1].classList.remove(`${styles.active}`);
-			setName("Details");
-		}
-		if (scrollpos >= 750) {
-			links.current.children[0].classList.remove(`${styles.active}`);
-			links.current.children[1].classList.add(`${styles.active}`);
-			links.current.children[2].classList.remove(`${styles.active}`);
-			setName("Description");
-		}
-		if (scrollpos >= 2850) {
-			links.current.children[1].classList.remove(`${styles.active}`);
-			links.current.children[2].classList.add(`${styles.active}`);
-			links.current.children[3].classList.remove(`${styles.active}`);
-			setName("Reviews");
-		}
-		if (scrollpos >= 3550) {
-			links.current.children[2].classList.remove(`${styles.active}`);
-			links.current.children[3].classList.add(`${styles.active}`);
-			setName("Related");
+		for (let i = 0; i <= Object.entries(refobj).length - 1; i++) {
+			let pos =
+				Object.entries(refobj)[i][1].current.offsetHeight +
+				Object.entries(refobj)[i][1].current.offsetTop;
+
+			if (pos > scrollpos) {
+				for (let link of links.current.children) {
+					link.classList.remove(`${styles.active}`);
+				}
+				links.current.children[i].classList.add(`${styles.active}`);
+				sidename.current.innerText = Object.entries(refobj)[i][0];
+				break;
+			}
 		}
 	};
 
 	useEffect(() => {
-		setName("Details");
 		window.addEventListener("scroll", handleScroll);
 
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	const scrollTo = (el) => el.scrollIntoView({ behavior: "smooth" });
+	const scrollTo = (el) => {
+		el.scrollIntoView({ behavior: "smooth" });
+	};
 
 	return (
 		<div className={styles.sidebar}>
@@ -52,7 +42,7 @@ const Sidebar = (props) => {
 					<li className={`${styles.sideLinks} ${styles.active}`}>
 						<p
 							className={styles.sideLinkText}
-							onClick={() => scrollTo(refobj.details.current)}
+							onClick={() => scrollTo(refobj.Details.current)}
 						>
 							Details
 						</p>
@@ -60,7 +50,7 @@ const Sidebar = (props) => {
 					<li className={styles.sideLinks}>
 						<p
 							className={styles.sideLinkText}
-							onClick={() => scrollTo(refobj.description.current)}
+							onClick={() => scrollTo(refobj.Description.current)}
 						>
 							Description
 						</p>
@@ -68,7 +58,7 @@ const Sidebar = (props) => {
 					<li className={styles.sideLinks}>
 						<p
 							className={styles.sideLinkText}
-							onClick={() => scrollTo(refobj.reviews.current)}
+							onClick={() => scrollTo(refobj.Reviews.current)}
 						>
 							Reviews
 						</p>
@@ -76,7 +66,7 @@ const Sidebar = (props) => {
 					<li className={styles.sideLinks}>
 						<p
 							className={styles.sideLinkText}
-							onClick={() => scrollTo(refobj.related.current)}
+							onClick={() => scrollTo(refobj.Related.current)}
 						>
 							Related
 						</p>
@@ -103,7 +93,7 @@ const Sidebar = (props) => {
 				</ul>
 			</div>
 			<div className={styles.option}>
-				<h3>{name}</h3>
+				<h3 ref={sidename}>Details</h3>
 			</div>
 		</div>
 	);
